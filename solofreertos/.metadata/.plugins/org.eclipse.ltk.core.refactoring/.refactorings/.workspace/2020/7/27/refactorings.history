@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;freertos_blinky&apos; to &apos;freertos_button_timer&apos;" description="Rename resource &apos;freertos_blinky&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/freertos_blinky" name="freertos_button_timer" stamp="1593642727542" updateReferences="true"/>
+</session>

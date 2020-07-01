@@ -1,0 +1,177 @@
+/*
+ * @brief Modified from FreeRTOS Blinky example
+ *
+ * Author: Milton Eduardo Sosa
+ */
+
+#include "chip.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
+const int LED1[2] = {0, 14}; //El led1 correspond al GPIO0 bit14
+const int LED2[2] = {1, 11}; //El led2 correspond al GPIO1 bit 11
+const int LED3[2] = {1, 12}; //El led2 corresponde al GPIO1 bit 12
+const int LEDA[2] = {5, 2}; //El led azul corresponde al GPIO5 bit 2
+
+
+const int TEC1[2] = {0, 4}; // Pulsador 1 corresponde a GPIO 0 bit 4
+const int TEC2[2] = {0, 8}; // Pulsador 2 corresponde a GPIO 0 bit 8
+const int TEC3[2] = {0, 9}; // Pulsador 3 corresponde a GPIO 0 bit 9
+const int TEC4[2] = {1, 9}; // Pulsador 4 corresponde a GPIO 1 bit 9
+
+bool secuencia = 0; // 0= secuencia derecha, 1= secuencia izquierda
+
+int delay1 = 150;//incialmente el delay es 150 mS
+
+TaskHandle_t handlerSecuenciaderecha = NULL;
+TaskHandle_t handlerSecuenciaizquierda = NULL;
+
+/*****************************************************************************
+ * Private types/enumerations/variables
+ ****************************************************************************/
+
+/*****************************************************************************
+ * Public types/enumerations/variables
+ ****************************************************************************/
+
+/*****************************************************************************
+ * Private functions
+ ****************************************************************************/
+
+
+
+/* Sets up system hardware */
+static void prvSetupHardware(void)
+{
+	SystemCoreClockUpdate();
+	Chip_GPIO_Init(LPC_GPIO_PORT);
+}
+
+
+/*Tarea secuencia derecha*/
+static void vSecuenciaderechaTask1(void *pvParameters) {
+	while (1) {
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, 1, 11, true);
+		//La secuencia a seguir es: azul, LED1, LED2, LED3
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LEDA[0], LEDA[1], true);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1[0], LED1[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED2[0], LED2[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED3[0], LED3[1], false);
+		vTaskDelay(delay1 * configTICK_RATE_HZ / 1000);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LEDA[0], LEDA[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1[0], LED1[1], true);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED2[0], LED2[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED3[0], LED3[1], false);
+		vTaskDelay(delay1 * configTICK_RATE_HZ / 1000);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LEDA[0], LEDA[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1[0], LED1[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED2[0], LED2[1], true);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED3[0], LED3[1], false);
+		vTaskDelay(delay1 * configTICK_RATE_HZ / 1000);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LEDA[0], LEDA[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1[0], LED1[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED2[0], LED2[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED3[0], LED3[1], true);
+		vTaskDelay(delay1 * configTICK_RATE_HZ / 1000);
+	}
+}
+
+
+/*Tarea secuencia izquierda*/
+static void vSecuenciaizquierdaTask2(void *pvParameters) {
+	while (1)
+	{
+		//La secuencia a seguir es: azul, LED1, LED2, LED3
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LEDA[0], LEDA[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1[0], LED1[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED2[0], LED2[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED3[0], LED3[1], true);
+		vTaskDelay(delay1 * configTICK_RATE_HZ / 1000);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LEDA[0], LEDA[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1[0], LED1[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED2[0], LED2[1], true);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED3[0], LED3[1], false);
+		vTaskDelay(delay1 * configTICK_RATE_HZ / 1000);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LEDA[0], LEDA[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1[0], LED1[1], true);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED2[0], LED2[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED3[0], LED3[1], false);
+		vTaskDelay(delay1 * configTICK_RATE_HZ / 1000);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LEDA[0], LEDA[1], true);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1[0], LED1[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED2[0], LED2[1], false);
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED3[0], LED3[1], false);
+		vTaskDelay(delay1 * configTICK_RATE_HZ / 1000);
+	}
+}
+
+/*****************************************************************************
+ * Public functions
+ ****************************************************************************/
+
+/**
+ * @brief	main routine for FreeRTOS blinky example
+ * @return	Nothing, function should not exit
+ */
+int main(void)
+{
+	//*Primero configuro los pines de entrada y salida del registro SCU como FUNC0(GPIO)*/
+	prvSetupHardware();
+	Chip_SCU_PinMuxSet(2,  2, SCU_MODE_FUNC4 | SCU_MODE_PULLUP | SCU_MODE_INBUFF_EN);//en este pin, FUNC4 es GPIO
+	Chip_SCU_PinMuxSet(2, 10, SCU_MODE_FUNC0 | SCU_MODE_PULLUP | SCU_MODE_INBUFF_EN);
+	Chip_SCU_PinMuxSet(2, 11, SCU_MODE_FUNC0 | SCU_MODE_PULLUP | SCU_MODE_INBUFF_EN);
+	Chip_SCU_PinMuxSet(2, 12, SCU_MODE_FUNC0 | SCU_MODE_PULLUP | SCU_MODE_INBUFF_EN);
+
+	Chip_SCU_PinMuxSet(1, 0,  SCU_MODE_FUNC0 | SCU_MODE_PULLUP | SCU_MODE_INBUFF_EN); //tec1 de la EDU-CIAA
+	Chip_SCU_PinMuxSet(1, 1,  SCU_MODE_FUNC0 | SCU_MODE_PULLUP | SCU_MODE_INBUFF_EN); //tec2 de la EDU-CIAA
+	Chip_SCU_PinMuxSet(1, 2,  SCU_MODE_FUNC0 | SCU_MODE_PULLUP | SCU_MODE_INBUFF_EN); //tec3
+	Chip_SCU_PinMuxSet(1, 6,  SCU_MODE_FUNC0 | SCU_MODE_PULLUP | SCU_MODE_INBUFF_EN); //tec4
+
+
+
+
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, LEDA[0], LEDA[1]);//Configuro el GPIO como salida para los leds
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, LED1[0], LED1[1]);
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, LED2[0], LED2[1]);
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, LED3[0], LED3[1]);
+
+	Chip_GPIO_SetPinDIRInput(LPC_GPIO_PORT, TEC1[0], TEC1[1]); //Configuro el GPIO como entrada para pulsadores
+	Chip_GPIO_SetPinDIRInput(LPC_GPIO_PORT, TEC2[0], TEC2[1]);
+	Chip_GPIO_SetPinDIRInput(LPC_GPIO_PORT, TEC4[0], TEC4[1]);
+
+	// Creo Tarea secuencia derecha //
+	xTaskCreate(vSecuenciaderechaTask1, "SecuenciaDerecha", 200,
+			NULL, tskIDLE_PRIORITY, &handlerSecuenciaderecha);
+
+	// Creo Tarea secuencia izquierda //
+	xTaskCreate(vSecuenciaizquierdaTask2, "SecuenciaIzquierda", 200,
+			NULL, tskIDLE_PRIORITY, &handlerSecuenciaizquierda);
+
+	/* Arranco el evet loop o scheduler */
+	vTaskStartScheduler();
+
+	vTaskSuspend(handlerSecuenciaizquierda);//suspendo la secuencia izquierda hasta que apriete TEC4
+
+
+	while(1){
+
+		if (!Chip_GPIO_GetPinState(LPC_GPIO_PORT, TEC4[0], TEC4[1]) && secuencia == 0) //tec4 = suspendo task1 y resumo task2
+		{
+			secuencia = 1;
+			vTaskSuspend(handlerSecuenciaderecha);//suspendo la secuencia derecha
+			vTaskResume(handlerSecuenciaizquierda);
+		}
+
+
+		if (!Chip_GPIO_GetPinState(LPC_GPIO_PORT, TEC1[0], TEC1[1]) && secuencia == 1) //tec1 = suspendo task2 y resumo task1
+		{
+			secuencia = 0;
+			vTaskSuspend(handlerSecuenciaizquierda);//suspendo la secuencia izquierda
+			vTaskResume(handlerSecuenciaderecha);
+		}
+	}
+
+
+	/* Should never arrive here */
+	return 1;
+}

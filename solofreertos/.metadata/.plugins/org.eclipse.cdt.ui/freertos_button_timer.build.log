@@ -1,0 +1,92 @@
+00:52:25 **** Build of configuration Release for project freertos_button_timer ****
+make -r all 
+Building file: ../freertos/src/FreeRTOSCommonHooks.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/FreeRTOSCommonHooks.d" -MT"freertos/src/FreeRTOSCommonHooks.o" -MT"freertos/src/FreeRTOSCommonHooks.d" -o "freertos/src/FreeRTOSCommonHooks.o" "../freertos/src/FreeRTOSCommonHooks.c"
+../freertos/src/FreeRTOSCommonHooks.c: In function 'vApplicationMallocFailedHook':
+../freertos/src/FreeRTOSCommonHooks.c:70:2: warning: implicit declaration of function 'DEBUGSTR' [-Wimplicit-function-declaration]
+  DEBUGSTR("DIE:ERROR:FreeRTOS: Malloc Failure!\r\n");
+  ^
+../freertos/src/FreeRTOSCommonHooks.c: In function 'vApplicationStackOverflowHook':
+../freertos/src/FreeRTOSCommonHooks.c:88:2: warning: implicit declaration of function 'DEBUGOUT' [-Wimplicit-function-declaration]
+  DEBUGOUT("DIE:ERROR:FreeRTOS: Stack overflow in task %s\r\n", pcTaskName);
+  ^
+Finished building: ../freertos/src/FreeRTOSCommonHooks.c
+ 
+Building file: ../freertos/src/croutine.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/croutine.d" -MT"freertos/src/croutine.o" -MT"freertos/src/croutine.d" -o "freertos/src/croutine.o" "../freertos/src/croutine.c"
+Finished building: ../freertos/src/croutine.c
+ 
+Building file: ../freertos/src/event_groups.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/event_groups.d" -MT"freertos/src/event_groups.o" -MT"freertos/src/event_groups.d" -o "freertos/src/event_groups.o" "../freertos/src/event_groups.c"
+Finished building: ../freertos/src/event_groups.c
+ 
+Building file: ../freertos/src/heap_3.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/heap_3.d" -MT"freertos/src/heap_3.o" -MT"freertos/src/heap_3.d" -o "freertos/src/heap_3.o" "../freertos/src/heap_3.c"
+Finished building: ../freertos/src/heap_3.c
+ 
+Building file: ../freertos/src/list.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/list.d" -MT"freertos/src/list.o" -MT"freertos/src/list.d" -o "freertos/src/list.o" "../freertos/src/list.c"
+Finished building: ../freertos/src/list.c
+ 
+Building file: ../freertos/src/port.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/port.d" -MT"freertos/src/port.o" -MT"freertos/src/port.d" -o "freertos/src/port.o" "../freertos/src/port.c"
+Finished building: ../freertos/src/port.c
+ 
+Building file: ../freertos/src/queue.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/queue.d" -MT"freertos/src/queue.o" -MT"freertos/src/queue.d" -o "freertos/src/queue.o" "../freertos/src/queue.c"
+Finished building: ../freertos/src/queue.c
+ 
+Building file: ../freertos/src/redlib_memfix.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/redlib_memfix.d" -MT"freertos/src/redlib_memfix.o" -MT"freertos/src/redlib_memfix.d" -o "freertos/src/redlib_memfix.o" "../freertos/src/redlib_memfix.c"
+Finished building: ../freertos/src/redlib_memfix.c
+ 
+Building file: ../freertos/src/tasks.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/tasks.d" -MT"freertos/src/tasks.o" -MT"freertos/src/tasks.d" -o "freertos/src/tasks.o" "../freertos/src/tasks.c"
+Finished building: ../freertos/src/tasks.c
+ 
+Building file: ../freertos/src/timers.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"freertos/src/timers.d" -MT"freertos/src/timers.o" -MT"freertos/src/timers.d" -o "freertos/src/timers.o" "../freertos/src/timers.c"
+Finished building: ../freertos/src/timers.c
+ 
+Building file: ../example/src/button_timer.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"example/src/button_timer.d" -MT"example/src/button_timer.o" -MT"example/src/button_timer.d" -o "example/src/button_timer.o" "../example/src/button_timer.c"
+Finished building: ../example/src/button_timer.c
+ 
+Building file: ../example/src/cr_startup_lpc43xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"example/src/cr_startup_lpc43xx.d" -MT"example/src/cr_startup_lpc43xx.o" -MT"example/src/cr_startup_lpc43xx.d" -o "example/src/cr_startup_lpc43xx.o" "../example/src/cr_startup_lpc43xx.c"
+Finished building: ../example/src/cr_startup_lpc43xx.c
+ 
+Building file: ../example/src/sysinit.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -D__USE_LPCOPEN -D__REDLIB__ -DCORE_M4 -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/example/inc" -I"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/freertos_button_timer/freertos/inc" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -specs=redlib.specs -MMD -MP -MF"example/src/sysinit.d" -MT"example/src/sysinit.o" -MT"example/src/sysinit.d" -o "example/src/sysinit.o" "../example/src/sysinit.c"
+Finished building: ../example/src/sysinit.c
+ 
+Building target: freertos_button_timer.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_chip_43xx/Release" -L"/home/snorkman/Escritorio/EJ1_PDM/solofreertos/lpc_board_nxp_lpcxpresso_4337/Release" -Xlinker -Map="freertos_button_timer.map" -Xlinker --gc-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -T "freertos_blinky_Release.ld" -o "freertos_button_timer.axf"  ./freertos/src/FreeRTOSCommonHooks.o ./freertos/src/croutine.o ./freertos/src/event_groups.o ./freertos/src/heap_3.o ./freertos/src/list.o ./freertos/src/port.o ./freertos/src/queue.o ./freertos/src/redlib_memfix.o ./freertos/src/tasks.o ./freertos/src/timers.o  ./example/src/button_timer.o ./example/src/cr_startup_lpc43xx.o ./example/src/sysinit.o   -llpc_board_nxp_lpcxpresso_4337 -llpc_chip_43xx
+Finished building target: freertos_button_timer.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "freertos_button_timer.axf";  arm-none-eabi-objcopy -v -O binary "freertos_button_timer.axf" "freertos_button_timer.bin" ; checksum -p LPC4337 -d "freertos_button_timer.bin";
+   text	   data	    bss	    dec	    hex	filename
+   7096	      8	    684	   7788	   1e6c	freertos_button_timer.axf
+copy from `freertos_button_timer.axf' [elf32-littlearm] to `freertos_button_timer.bin' [binary]
+Written checksum 0x53ff6ba6 at offset 0x1c in file freertos_button_timer.bin
+Previous value 0x00000000 at offset 0x1c in file freertos_button_timer.bin
+ 
+
+00:52:26 Build Finished (took 1s.465ms)
+
